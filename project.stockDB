@@ -1,0 +1,52 @@
+#new project 
+# Language stockBD
+# Writed by Chedly Chtourou / Contact : chedly.chtourou@gmail.com
+#Open source and Open license
+#call variable directly without declaration
+#possible types : "OD"; "Database" ; "Table" ; "Row" ; "Text" ; "Int" ; "Char"
+# We suppose that OD is the default database with two rows "Ido" and "Value"
+# other databases that will be created have just a row called "Id"
+
+#To create a new database
+procedure new()
+{
+OD test;
+Database sample;
+Text t;
+Record t;
+zip(test,sample,t);
+}
+
+#To compress the text and add it to the database created
+procedure zip(OD,Database,Text){
+	Int i;
+	for (i=0;i<Text.length();i++)
+	{
+		Char c = Text[i];
+		Take(OD,Text[i],Database);
+	}
+}
+
+#To uncompress the text stocked inside the database
+procedure unzip(OD,Database,Text)
+{
+	Int i;
+	
+		for (i=0;i<t.length();i++)
+	{
+		Text[i]=Give(OD,Database);
+	}
+}
+
+#This function is the one that make recording characters compressed
+procedure Take(OD od,Char char,Database database)
+{
+	Int x= "select id where "+od+".value ="+char;
+	"insert "+database+".value="+x+"where"+database+".id=count(database)+1";
+}
+
+#This function is the one that uncode the records of the database to rewrite the text
+procedure Give(OD od,Database database)
+{
+	Char="select"+od+".value where"+database+".value="+od+".id";
+}
