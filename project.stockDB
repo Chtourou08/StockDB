@@ -13,17 +13,18 @@ procedure new()
 OD test;
 Database sample;
 Text t;
-Record t;
-zip(test,sample,t);
+Record r;
+zip(test,sample,t,r);
 }
 
 #To compress the text and add it to the database created
-procedure zip(OD,Database,Text){
+procedure zip(OD,Database,Text,Record){
 	Int i;
 	for (i=0;i<Text.length();i++)
 	{
 		Char c = Text[i];
 		Take(OD,Text[i],Database);
+		Record ++;
 	}
 }
 
